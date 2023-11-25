@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Patient Data</title>
+
+    <!-- Include Dropzone.js library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css" integrity="sha384-ek+ho0LQQtlxRcnB9oHN9ad1T/Q07fSLYU8atIeKVpNC4P+WE+xIb9bqNm1zj7U" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js" integrity="sha384-0vfqPs3FYW0p+JjrkAqX5uRg8tR8fZkgPOZRv8Q+dNs2hZ9Q9b4B8BE5bBWT+lL4" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f2f2f2; /* Light grey background */
+        }
+
+        #forms-container {
+            border: 3px solid #4CAF50; /* Green border */
+            border-radius: 15px; /* Rounded edges */
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dropzone {
+            width: 300px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Container for all forms with Dropzone -->
+<div id="forms-container">
+    <!-- HTML form with Dropzone for Patients CSV -->
+    <form action="process_patients.php" method="post" enctype="multipart/form-data" class="dropzone">
+        <label class="form-label" for="patientFile">Patients Personal Information (CSV):</label>
+        <input name="patientFile" type="file" accept=".csv" required />
+        <br>
+        <input type="submit" value="Upload" name="submitPatientsBtn"/>
+    </form>
+
+    <!-- HTML form with Dropzone for adhd data CSV -->
+    <form action="process_adhddata.php" method="post" enctype="multipart/form-data" class="dropzone">
+        <label class="form-label" for="emergencyFile">ADHD Data (CSV):</label>
+        <input name="emergencyFile" type="file" accept=".csv" required />
+        <br>
+        <input type="submit" value="Upload" name="submitEmergencyBtn"/>
+    </form>
+
+    <!-- HTML form with Dropzone for impact data CSV -->
+    <form action="process_impact.php" method="post" enctype="multipart/form-data" class="dropzone">
+        <label class="form-label" for="insuranceFile">Impact Details (CSV):</label>
+        <input name="insuranceFile" type="file" accept=".csv" required />
+        <br>
+        <input type="submit" value="Upload" name="submitInsuranceBtn"/>
+    </form>
+
+    <!-- HTML form with Dropzone for sports data CSV -->
+    <form action="process_sportsdata.php" method="post" enctype="multipart/form-data" class="dropzone">
+        <label class="form-label" for="medicalFile">Sports Information (CSV):</label>
+        <input name="medicalFile" type="file" accept=".csv" required />
+        <br>
+        <input type="submit" value="Upload" name="submitMedicalBtn"/>
+    </form>
+
+    <!-- HTML form with Dropzone for adhd injury data CSV -->
+    <form action="process_injurydata.php" method="post" enctype="multipart/form-data" class="dropzone">
+        <label class="form-label" for="medicalFile">Injury Data (CSV):</label>
+        <input name="medicalFile" type="file" accept=".csv" required />
+        <br>
+        <input type="submit" value="Upload" name="submitMedicalBtn"/>
+    </form>
+
+    <!-- HTML form with Dropzone for patient demographics data CSV -->
+    <form action="process_demographics.php" method="post" enctype="multipart/form-data" class="dropzone">
+        <label class="form-label" for="medicalFile">Patient Demographics (CSV):</label>
+        <input name="medicalFile" type="file" accept=".csv" required />
+        <br>
+        <input type="submit" value="Upload" name="submitMedicalBtn"/>
+    </form>
+    <form action="process_patient_info.php" method="post" enctype="multipart/form-data" class="dropzone">
+        <label class="form-label" for="patientInfoFile">Patient Info Records (CSV):</label>
+        <input name="patientInfoFile" type="file" accept=".csv" required />
+        <br>
+        <input type="submit" value="Upload" name="submitPatientInfoBtn"/>
+    </form>
+    
+</div>
+
+</body>
+</html>

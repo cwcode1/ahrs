@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User Form</title>
+    <!-- Add any additional styles or link to a CSS file if needed -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            margin-top: 10px;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+        }
+        label {
+            display: block; /* Make labels block-level for vertical alignment */
+            margin-bottom: 5px; /* Add space between labels and inputs */
+        }
+        input, select {
+            width: 100%; /* Make inputs and selects full width */
+            padding: 10px;
+            margin-bottom: 10px; /* Add space between inputs */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+        .logout-btn {
+            background-color: #00FF00; /* Green color */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: fixed;
+            top: 10px; /* Adjust top position as needed */
+            right: 10px; /* Adjust right position as needed */
+        }
+    </style>
+    <script src="common.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Logout button -->
+        <form method="post" action="logout.php" id="logoutForm">
+            <button class="logout-btn" type="button" onclick="confirmLogout()">Logout</button>
+        </form>
+
+        <div class="container">
+            <h2>New User Form</h2>
+            <form action="add_user.php" method="post">
+                <label for="firstname">First Name:</label>
+                <input type="text" name="firstname" required>
+
+                <label for="lastname">Last Name:</label>
+                <input type="text" name="lastname" required>
+
+                <label for="dateofbirth">Date of Birth:</label>
+                <input type="date" name="dateofbirth" required>
+
+                <label for="role">Role:</label>
+                <select name="role" required>
+                    <option value="admin">Admin</option>
+                    <option value="committee">Committee Member</option>
+                    <option value="researcher">Researcher</option>
+                </select>
+
+                <label for="sex">Sex:</label>
+                <select name="sex" required>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                    <option value="X">Other</option>
+                </select>
+
+                <label for="email">Email:</label>
+                <input type="email" name="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" name="password" required>
+
+                <button type="submit">Add User</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        .error-message {
+            color: red;
+            display: none;
+            margin-bottom: 15px;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .error-message.show {
+            display: block;
+            opacity: 1;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            // Get form inputs
+            var firstName = document.forms["myForm"]["firstName"].value;
+            var lastName = document.forms["myForm"]["lastName"].value;
+
+            // Check for empty values
+            if (firstName == "") {
+                displayError("First Name is required");
+                return false; // Prevent form submission
+            }
+
+            if (lastName == "") {
+                displayError("Last Name is required");
+                return false; // Prevent form submission
+            }
+
+            // If all validations pass, you can proceed with form submission
+            return true;
+        }
+
+        function displayError(message) {
+            // Display error message with a fade-in effect
+            var errorElement = document.getElementById("error-message");
+            errorElement.innerHTML = message;
+            errorElement.classList.add("show");
+
+            // Hide the error message after 3 seconds
+            setTimeout(function() {
+                errorElement.classList.remove("show");
+            }, 3000);
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Form Validation Example</h2>
+
+    <form name="myForm" onsubmit="return validateForm()" action="submit_form.php" method="post">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName">
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName">
+
+        <div class="error-message" id="error-message"></div>
+
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>

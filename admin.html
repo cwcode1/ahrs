@@ -1,0 +1,74 @@
+<?php
+// Start the session
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['user'])) {
+    // Redirect to the login page if not logged in
+    header("Location: login.html");
+    exit();
+}
+
+// Logout logic
+if (isset($_POST['logout'])) {
+    // Destroy all session data
+    session_destroy();
+
+    // Redirect to the login page after logout
+    header("Location: login.html");
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <!-- Add any additional styles or link to a CSS file if needed -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        .dashboard-btn {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .logout-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="common.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Logout button -->
+        <form method="post" action="logout.php">
+            <button class="logout-btn" type="submit" name="logout">Logout</button>
+        </form>
+
+        <h2>Welcome to the Admin Dashboard</h2>
+
+        <!-- You can add other content specific to the admin dashboard here -->
+
+        <br>
+        <button class="dashboard-btn" onclick="location.href='adduser.html?role=admin'">Add a new user</button>
+        <button class="dashboard-btn" onclick="location.href='file_pick_all.html?role=admin'">Add new Patient record</button>
+        <br>
+        <button class="dashboard-btn" onclick="location.href='view_users.php?role=admin'">Current users</button>
+        <button class="dashboard-btn" onclick="location.href='view_logs.php?role=admin'">User Logs</button>
+        <button class="dashboard-btn" onclick="location.href='editable_csv.php?role=admin'">Upload data</button>
+    </div>
+</body>
+</html>

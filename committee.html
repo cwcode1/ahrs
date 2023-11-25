@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button Page</title>
+    <style>
+        body {
+            position: relative;
+            text-align: center; /* Aligns the content in the center */
+            margin-top: 50px; /* Move the content slightly downwards */
+        }
+
+        h1 {
+            margin-bottom: 20px; /* Further move the welcome text downwards */
+        }
+
+        form {
+            display: inline-block; /* Keeps the form content centered */
+            margin-top: 20px; /* Adds space between the heading and the form */
+        }
+
+        /* Style for the Logout button */
+        #logoutButton {
+            position: absolute;
+            top: 10px; /* Adjust top distance */
+            right: 10px; /* Adjust right distance */
+            font-size: 16px; /* Increase font size of Logout button */
+            padding: 10px 20px; /* Increase button padding */
+            background-color: #00FF00; /* Set background color to green */
+            color: #fff; /* Set text color to white */
+            border: none; /* Remove button border */
+            border-radius: 5px; /* Add border-radius for rounded corners */
+        }
+
+        /* Style for the buttons */
+        input[type="submit"] {
+            font-size: 20px; /* Maintain increased font size of buttons */
+            padding: 15px 30px; /* Maintain increased button padding */
+            margin: 5px; /* Add margin for spacing between buttons */
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome To Committee Dashboard</h1>
+
+    <!-- Form with buttons, aligned in the center -->
+    <form method="post">
+        <input type="submit" name="View Requests" value="View requests">
+        <input type="submit" name="Request Response" value="Request Response">
+        <br>
+        <input type="submit" name="Pending Requests" value="Pending Requests">
+        <input type="submit" name="Logout" value="Logout" id="logoutButton">
+    </form>
+</body>
+</html>
